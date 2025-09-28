@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+
+  <title>Garden Plotter</title>
+</head>
+<body>
+  <img class="sun" id="sun" src="../assets/sun.png" alt="sun">
+  <img class="moon" id="moon" src="../assets/moon.png" alt="moon">
+ <div id="theme-toggle-container">
+    <img id="theme-toggle-icon" src="../assets/sun-icon.png" alt="Toggle Theme">
+   <label class="switch">
+    <input id="theme-toggle" type="checkbox">
+    <span class="slider round"></span>
+  </label>
+ </div>
+  <img class="cloud" id="cloud2" src="../assets/cloud.png" alt="hello">
+  <img class="cloud" id="cloud1" src="../assets/cloud.png" alt="hello">
+  <div id="main-title-container">
+    <h1 id="main-title"></h1>
+  </div>
+
+  <button class="green-button" id="start-button">Start</button>
+  <div id="plots-container">
+    <h1 id="plots-title">My Plots</h1>
+  
+
+    <div id="plots-grid">
+      <div class="plot" id="plot1"> Empty Plot 1</div>
+      <div class="plot" id="plot2"> Empty Plot 2</div>
+      <div class="plot" id="plot3"> Empty Plot 3</div>
+      <div class="plot" id="plot4"> Empty Plot 4</div>
+      <button class="green-button" id="new-plot-button">Start New Plot</button>
+    </div>
+    
+  </div>
+
+
+  
+  
+  <div id="grass-container"></div>
+  <img class="sunflowers" id="sunflower" src="../assets/sunflower.png" alt="sunflower">
+  <img class="sunflowers" id="sunflower2" src="../assets/sunflower2.png" alt="sunflower">
+  <img class="sunflowers" id="sunflower3" src="../assets/sunflower2.png" alt="sunflower">
+
+   <script type="module" src="../script.js"></script>
+</body>
+</html>

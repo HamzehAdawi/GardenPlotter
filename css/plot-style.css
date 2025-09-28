@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-behavior: none;
+  overflow: hidden;
+  background-color: #2b2a33;
+}
+/* #garden-plot {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 45%;
+    width: auto;
+    z-index: -1;
+    background-repeat: repeat;
+
+} */
+
+#garden-plot-container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 70%;
+    width: 80%;
+    display: grid;
+    background-image: url('../assets/Empty-grass-plot.png');
+    background-repeat: repeat;
+    background-color: red;
+}
