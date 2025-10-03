@@ -1,12 +1,9 @@
-
 const delay = 3500;
 const title = document.querySelector("#main-title");
 const arrayLetters = "GardenPlotter".split("");
 const radius = 200; 
 const centerIndex = (arrayLetters.length - 1) / 2;
 const angleStep = 20 / radius; 
-
-
 
 arrayLetters.forEach((letter, index) => {
 
@@ -135,21 +132,24 @@ const slider = document.querySelector('.slider');
 const sliderBefore = document.querySelector('.slider:before');
 const sun = document.getElementById('sun');
 const moon = document.getElementById('moon');
-const dark = localStorage.getItem('theme-dark') === '1';
 const themeIcon = document.getElementById('theme-toggle-icon');
+const root = document.documentElement;
 
+// Initialize theme immediately
+const dark = localStorage.getItem('theme-dark') === '1';
+const themeColor = dark ? 'rgb(43, 42, 51)' : 'rgb(54, 184, 224)';
+root.style.setProperty('--theme-color', themeColor);
 
 // Restore theme and icon state from localStorage
 const savedIcon = localStorage.getItem('theme-icon');
 if (dark) {
-  body.style.backgroundColor = 'rgb(43, 42, 51)';
+
   if (themeIcon && savedIcon === 'moon') {
     themeIcon.setAttribute('src', '../assets/moon-icon.png');
     themeIcon.style.width = '18px';
     themeIcon.style.height = '18px';
   }
 } else {
-  body.style.backgroundColor = 'rgba(83, 209, 244, 1)';
   if (themeIcon && savedIcon === 'sun') {
     themeIcon.setAttribute('src', '../assets/sun-icon.png');
     themeIcon.style.width = '18px';
@@ -160,7 +160,7 @@ if (dark) {
 if (toggleSwitch) {
   toggleSwitch.checked = dark;
   if (dark) {
-    body.style.backgroundColor = 'rgb(43, 42, 51)';
+    root.style.setProperty('--theme-color', 'rgb(43, 42, 51)');
     slider.style.backgroundColor = '#ffffffff';
     if (sun) sun.style.transform = 'translateX(-260px)';
     if (moon) moon.style.transform = 'translateY(160px)';
@@ -170,7 +170,7 @@ if (toggleSwitch) {
       themeIcon.style.height = '18px';
     }
   } else {
-    body.style.backgroundColor = 'rgba(83, 209, 244, 1)';
+    root.style.setProperty('--theme-color', 'rgb(54, 184, 224)');
     slider.style.backgroundColor = 'rgba(43, 42, 51, 0.68)';
     if (sun) sun.style.transform = 'translateX(0px)';
     if (moon) moon.style.transform = 'translateY(-180px)';
@@ -181,10 +181,9 @@ if (toggleSwitch) {
     }
   }
 
-
   toggleSwitch.addEventListener('change', (e) => {
     if (e.target.checked) {
-      body.style.backgroundColor = 'rgb(43, 42, 51)';
+      root.style.setProperty('--theme-color', 'rgb(43, 42, 51)');
       slider.style.backgroundColor = '#ffffffff';
       if (themeIcon) {
         themeIcon.setAttribute('src', '../assets/moon-icon.png');
@@ -216,7 +215,7 @@ if (toggleSwitch) {
       localStorage.setItem('theme-dark', '1');
       localStorage.setItem('theme-icon', 'moon');
     } else {
-      body.style.backgroundColor = 'rgb(54, 184, 224)';
+      root.style.setProperty('--theme-color', 'rgb(54, 184, 224)');
       slider.style.backgroundColor = 'rgba(43, 42, 51, 0.68)';
       if (themeIcon) {
         themeIcon.setAttribute('src', '../assets/sun-icon.png');
@@ -269,5 +268,27 @@ plots.forEach(plot => {
   });
 });
 
-
 let newPlotButton = document.querySelector("#new-plot-button");
+
+if (newPlotButton) {
+  newPlotButton.addEventListener("click", () => {
+     window.location.href = "start.html";
+  });
+}
+
+const plotInputs = document.querySelectorAll('.plot-names');
+
+plotInputs.forEach((input, index) => {
+  // Restore saved plot name when page loads
+  const savedName = localStorage.getItem(`plot${index + 1}-name`);
+  if (savedName) {
+    input.value = savedName;
+  }
+  
+  // Save plot name when user types
+  input.addEventListener('input', (event) => {
+    const plotName = event.target.value;
+    localStorage.setItem(`plot${index + 1}-name`, plotName); 
+  });
+});
+

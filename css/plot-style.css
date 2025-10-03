@@ -6,19 +6,8 @@ body {
   align-items: center;
   scroll-behavior: none;
   overflow: hidden;
-  background-color: #2b2a33;
+  background-color: var(--theme-color);
 }
-/* #garden-plot {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 45%;
-    width: auto;
-    z-index: -1;
-    background-repeat: repeat;
-
-} */
 
 #garden-plot-container {
     position: absolute;
@@ -29,5 +18,4 @@ body {
     display: grid;
     background-image: url('../assets/Empty-grass-plot.png');
     background-repeat: repeat;
-    background-color: red;
 }

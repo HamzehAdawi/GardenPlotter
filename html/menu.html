@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    const dark = localStorage.getItem('theme-dark') === '1';
+    const themeColor = dark ? 'rgb(43, 42, 51)' : 'rgb(54, 184, 224)';
+    document.documentElement.style.setProperty('--theme-color', themeColor);
+  </script>
+  <link rel="stylesheet" href="../css/global-style.css" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,17 +38,23 @@
   
 
     <div id="plots-grid">
-      <div class="plot" id="plot1"> Empty Plot 1</div>
-      <div class="plot" id="plot2"> Empty Plot 2</div>
-      <div class="plot" id="plot3"> Empty Plot 3</div>
-      <div class="plot" id="plot4"> Empty Plot 4</div>
+      <div class="plot" id="plot1"> 
+        <input class="plot-names" contenteditable="true" placeholder="Empty Plot #1">
+      </div>
+      <div class="plot" id="plot2"> 
+        <input class="plot-names" contenteditable="true" placeholder="Empty Plot #2">
+      </div>
+      <div class="plot" id="plot3"> 
+        <input class="plot-names" contenteditable="true" placeholder="Empty Plot #3">
+      </div>
+      <div class="plot" id="plot4"> 
+        <input class="plot-names" contenteditable="true" placeholder="Empty Plot #4">
+      </div>
+      <br>
       <button class="green-button" id="new-plot-button">Start New Plot</button>
     </div>
     
   </div>
-
-
-  
   
   <div id="grass-container"></div>
   <img class="sunflowers" id="sunflower" src="../assets/sunflower.png" alt="sunflower">

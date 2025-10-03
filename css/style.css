@@ -13,22 +13,17 @@ body {
   align-items: center;
   scroll-behavior: none;
   overflow: hidden;
-}
-
-.main-title-container {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
+  background-color: var(--theme-color);
 }
 
 #main-title {
   color: rgb(60, 177, 93);
   font-family: "Rubik Bubbles";
-  font-size: 135px;
+  font-size: 6vw;
   text-shadow: 2px 16px 1px rgb(59, 37, 26);
+  top: -6.5%;
+  left: 26%;
+  position: absolute;
 }
 
 .letter {
@@ -39,6 +34,7 @@ body {
   position: absolute;
   top: 500px;
   left: 48%;
+  font-size: 2.5vw;
 }
 
 .green-button {
@@ -55,29 +51,29 @@ body {
 
 #plots-container {
   position: absolute;
-  top: 300px;
-  height: 700px;
-  width: 550px;
-  border-radius: 15%;
+  top: 19%;
+  height: 30vw;
+  width: 24vw;
+  border-radius: 10%;
   background-color: rgba(53, 43, 17, 0.995);
   border: 5px solid rgb(40, 128, 65);
   display: none;
-  padding: 30px;
-  font-size: 33px;
+  font-size: 33vw;
   font-family: "Rubik Bubbles";
   color: rgb(60, 177, 93);
   border: solid 22px rgb(40, 128, 65);
   overflow: hidden;
   align-items: center;
+  padding-bottom: 1.2vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 #plots-grid {
   display: grid;
-  gap: 20px;
+  gap: 3%;
   justify-items: center;
   align-items: center;
-  margin-top: 20px;
-  padding-bottom: 10px;
+  margin-top: 4%;
 }
 
 .plot {
@@ -85,24 +81,37 @@ body {
   align-items: center;
   justify-content: center;
   text-align: left;
-  width: 85%;
-  gap: 10px;
-  height: 65px;
+  height: .5vh;
+  width: 18vw;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   background-color: rgb(43, 130, 68);
   color: rgba(255, 255, 255, 0.531);
-  border-radius: 7px;
-  padding: 15px;
-  padding-top: 25px;
-  margin: auto 0;
+  border-radius: 2%;
   font-size: 40px;
   font-family: "Rockwell", sans-serif;
+  overflow: hidden;
+  padding-bottom: 19%;
+  padding-left: 3%;
+}
+
+.plot-names {
+  font-size: 30px;
+  font-family: "Rockwell", sans-serif;
+  text-align: left;
+  justify-content: left;
+  position: relative;
+  width: 75%;
+  top: 280%;
+  font-size: .9em;
+  overflow: hidden;
+  color: rgba(245, 245, 245, 0.947);
+  background-color: #2b8244;
+  border: none;
+  outline: none;
 }
 
 #new-plot-button {
-  position: absolute;
-  bottom: 40px;
-  font-size: 35px;
+  font-size: 4%;
 }
 
 #plots-title {
@@ -115,13 +124,13 @@ body {
   font-family: "Rockwell", sans-serif;
   color: rgb(255, 255, 255);
   font-size: 55px;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
 }
 
 #sun {
   position : absolute;
-  height: 190px;
-  width: 250px; 
+  height: 17vh;
+  width: 10vw; 
   top: 25px;
   left: 25px;
 }
@@ -140,7 +149,6 @@ body {
   height: 50px;
   width: 120px; 
   top: 60px;
-  
 }
 
 #cloud1 {
@@ -149,7 +157,6 @@ body {
   width: 350px;
   top: 300px;
 }
-
 
 #grass-container {
   position: absolute;
@@ -164,9 +171,9 @@ body {
 }
 
 .sunflowers {
-  height: 250px;
-  width: 350px;
-  bottom: -10px;
+  height: 15vh;
+  width: 14vw;
+  bottom: -4px;
   position: absolute;
 }
 
