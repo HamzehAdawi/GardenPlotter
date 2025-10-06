@@ -272,7 +272,26 @@ let newPlotButton = document.querySelector("#new-plot-button");
 
 if (newPlotButton) {
   newPlotButton.addEventListener("click", () => {
-     window.location.href = "start.html";
+     
+     if (plotSelected != null) {
+      window.location.href = "start.html";
+     } else {
+        Toastify({
+          text: "Please select a plot.",
+          duration: 3000,
+          gravity: "top", 
+          position: "center", 
+          style: {
+            background: "#288041ea", 
+            color: "#fff",         
+            fontSize: "25px",       
+            padding: "16px 24px",
+            minWidth: "400px",   
+            boxshadow: "0 4px 6px rgba(0, 0, 0, 0.1)", 
+            textAlign: "center",
+        }
+      }).showToast();
+    }
   });
 }
 
