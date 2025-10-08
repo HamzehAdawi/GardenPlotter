@@ -24,6 +24,8 @@ body {
   top: -6.5%;
   left: 26%;
   position: absolute;
+  pointer-events: none;
+  user-select: none;
 }
 
 .letter {
@@ -111,6 +113,11 @@ body {
 }
 
 #new-plot-button {
+  margin-right: 20px;
+  font-size: 4%;
+}
+
+#menu-button {
   font-size: 4%;
 }
 
@@ -125,6 +132,7 @@ body {
   color: rgb(255, 255, 255);
   font-size: 55px;
   padding-bottom: 20px;
+  user-select: none;
 }
 
 #sun {
@@ -133,6 +141,8 @@ body {
   width: 10vw; 
   top: 25px;
   left: 25px;
+  pointer-events: none;
+  user-select: none;
 }
 
 #moon {
@@ -141,6 +151,8 @@ body {
   width: 250px; 
   top: -160px;
   left: 40px;
+  pointer-events: none;
+  user-select: none;
 }
 
 #cloud2 {
@@ -149,6 +161,8 @@ body {
   height: 50px;
   width: 120px; 
   top: 60px;
+  pointer-events: none;
+  user-select: none;
 }
 
 #cloud1 {
@@ -156,6 +170,8 @@ body {
   height: 150px;
   width: 350px;
   top: 300px;
+  pointer-events: none;
+  user-select: none;
 }
 
 #grass-container {
@@ -168,6 +184,8 @@ body {
   background-size: auto 100px;
   padding: 0;
   font-size: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .sunflowers {
@@ -175,6 +193,8 @@ body {
   width: 14vw;
   bottom: -4px;
   position: absolute;
+  pointer-events: none;
+  user-select: none;
 }
 
 #sunflower2 {
@@ -272,4 +292,10 @@ input:checked + .slider:before {
   font-family: "Rubik Bubbles";
   font-size: 115px;
   text-shadow: 2px 16px 1px rgb(59, 37, 26);
+}
+
+#plot-select-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

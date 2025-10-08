@@ -274,6 +274,16 @@ if (newPlotButton) {
   newPlotButton.addEventListener("click", () => {
      
      if (plotSelected != null) {
+
+      const plotNameInput = plotSelected.querySelector('.plot-names');
+      let plotName = plotNameInput ? plotNameInput.value.trim() : '';
+      
+      // If no custom name entered, use the placeholder text or default name
+      if (!plotName) {
+        plotName = plotNameInput ? plotNameInput.placeholder : `Plot ${Array.from(plots).indexOf(plotSelected) + 1}`;
+      }
+      
+      localStorage.setItem("selectedPlotName", plotName);
       window.location.href = "start.html";
      } else {
         Toastify({
@@ -282,11 +292,11 @@ if (newPlotButton) {
           gravity: "top", 
           position: "center", 
           style: {
-            background: "#288041ea", 
+            background: "#3fbb62ed", 
             color: "#fff",         
             fontSize: "25px",       
             padding: "16px 24px",
-            minWidth: "400px",   
+            minWidth: "20%",   
             boxshadow: "0 4px 6px rgba(0, 0, 0, 0.1)", 
             textAlign: "center",
         }
@@ -298,16 +308,57 @@ if (newPlotButton) {
 const plotInputs = document.querySelectorAll('.plot-names');
 
 plotInputs.forEach((input, index) => {
-  // Restore saved plot name when page loads
+ 
   const savedName = localStorage.getItem(`plot${index + 1}-name`);
   if (savedName) {
     input.value = savedName;
   }
   
-  // Save plot name when user types
   input.addEventListener('input', (event) => {
     const plotName = event.target.value;
     localStorage.setItem(`plot${index + 1}-name`, plotName); 
   });
 });
 
+let menuButton = document.getElementById("menu-button");
+
+if (menuButton) {
+  menuButton.addEventListener("click", () => {
+     plotContainer.style.display = "none";
+     startButton.style.display = "block";
+  });
+}
+
+// Plot title setter - only runs if plot-title element exists (on start.html)
+function setPlotTitle() {
+  // Only run on start.html or if plot-title element exists
+  if (!window.location.href.includes('start.html') && !document.getElementById("plot-title")) {
+    return;
+  }
+  
+  const plotTitle = document.getElementById("plot-title");
+  
+  if (plotTitle) {
+    const selectedPlotName = localStorage.getItem("selectedPlotName");
+    
+    if (selectedPlotName && selectedPlotName.trim() !== '') {
+      plotTitle.textContent = selectedPlotName;
+    } else {
+      plotTitle.textContent = "Garden Plot";
+    }
+  }
+}
+
+// Call the function when the page loads - use multiple strategies
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setPlotTitle);
+} else {
+  // DOM is already loaded
+  setPlotTitle();
+}
+
+// Also try after a short delay to ensure everything is ready
+setTimeout(setPlotTitle, 100);
+
+// For extra safety, try when window loads
+window.addEventListener('load', setPlotTitle);
